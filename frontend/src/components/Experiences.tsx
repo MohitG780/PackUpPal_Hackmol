@@ -114,7 +114,7 @@ const experiences: Experience[] = [
 const Experiences: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Back Button */}
+      
       <button
         onClick={() => window.history.back()}
         className="flex items-center text-gray-700 hover:text-blue-600 transition mb-6"
@@ -123,7 +123,6 @@ const Experiences: React.FC = () => {
         <span>Back</span>
       </button>
 
-      {/* Title and description */}
       <div className="max-w-2xl mx-auto text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
           Traveler Experiences
@@ -134,7 +133,7 @@ const Experiences: React.FC = () => {
         </p>
       </div>
 
-      {/* Experience Cards */}
+      
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {experiences.map((experience) => (
           <div
