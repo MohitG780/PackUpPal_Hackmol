@@ -13,42 +13,48 @@ export function Destinations() {
       image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80",
       description: "A testament to eternal love and architectural brilliance",
       rating: 4.9,
-      region: "asia"
+      region: "asia",
+      link: "https://www.bing.com/search?pglt=297&q=taj+mahal+india&cvid=d9897e560ee34f46a9b1313137c161df&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOdIBCDQzNzdqMGoxqAIAsAIA&FORM=ANNTA1&PC=HCTS"
     },
     {
       name: "Santorini, Greece",
       image: "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?auto=format&fit=crop&q=80",
       description: "Iconic white buildings and breathtaking sunsets",
       rating: 4.8,
-      region: "europe"
+      region: "europe",
+      link: "https://www.bing.com/search?pglt=297&q=Santorini%2C+Greece&cvid=31db44500c5a4da7bff80ca330e57699&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOTIGCAEQABhAMgYIAhAAGEAyBggDEAAYQDIGCAQQABhAMgYIBRAAGEAyBggGEAAYQDIGCAcQABhAMgYICBAAGEDSAQc2MDhqMGoxqAIAsAIA&FORM=ANNTA1&PC=HCTS"
     },
     {
       name: "Swiss Alps",
       image: "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&q=80",
       description: "Majestic peaks and pristine alpine landscapes",
       rating: 4.9,
-      region: "europe"
+      region: "europe",
+      link: "https://www.bing.com/search?pglt=297&q=Swiss+Alps+Majestic+peaks&cvid=18f693cdc151460991621f9c7a96e52b&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOTIGCAEQABhAMgYIAhAAGEAyBggDEAAYQDIGCAQQABhAMgYIBRAAGEAyBggGEAAYQDIGCAcQABhAMgYICBAAGEDSAQgxODMzajBqMagCALACAA&FORM=ANNTA1&PC=HCTS"
     },
     {
       name: "Kerala Backwaters",
       image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80",
       description: "Serene waterways and lush tropical beauty",
       rating: 4.7,
-      region: "asia"
+      region: "asia",
+      link: "https://www.bing.com/search?pglt=297&q=Kerala+Backwaters&cvid=8dc5183f9f7f48c5a677117553ba083c&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOTIGCAEQABhAMgYIAhAuGEAyBggDEAAYQDIGCAQQABhAMgYIBRAAGEAyBggGEAAYQDIGCAcQABhAMgYICBAAGEDSAQgxMDAxajBqMagCALACAA&FORM=ANNTA1&PC=HCTS"
     },
     {
       name: "Machu Picchu, Peru",
       image: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&fit=crop&q=80",
       description: "Ancient Incan city in the clouds",
       rating: 4.9,
-      region: "americas"
+      region: "americas",
+      link: "https://www.bing.com/search?pglt=297&q=Machu+Picchu%2C+Peru&cvid=d25cca242d0a4326be6a7afb7baeaef4&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOTIGCAEQABhAMgYIAhAAGEAyBggDEAAYQDIGCAQQABhAMgYIBRAAGEAyBggGEAAYQDIGCAcQABhAMgYICBAAGEDSAQc1NjhqMGoxqAIAsAIA&FORM=ANNTA1&PC=HCTS"
     },
     {
       name: "Mount Fuji, Japan",
       image: "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&q=80",
       description: "Japan's iconic sacred mountain",
       rating: 4.8,
-      region: "asia"
+      region: "asia",
+      link: "https://www.bing.com/search?pglt=297&q=Mount+Fuji%2C+Japan&cvid=54b1f26724154ab3a74993fba693a280&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOTIGCAEQABhAMgYIAhAAGEAyBggDEAAYQDIGCAQQABhAMgYIBRAAGEAyBggGEAAYQDIGCAcQABhAMgYICBAAGEDSAQc0MzRqMGoxqAIAsAIA&FORM=ANNTA1&PC=HCTS"
     }
   ];
 
@@ -144,7 +150,10 @@ export function Destinations() {
                     <h3 className="ml-2 text-xl font-semibold text-gray-900">{destination.name}</h3>
                   </div>
                   <p className="text-gray-600">{destination.description}</p>
-                  <button className="mt-4 w-full px-4 py-2 bg-pink-900 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                  <button 
+                    onClick={() => window.open(destination.link, '_blank')}
+                    className="mt-4 w-full px-4 py-2 bg-pink-900 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                  >
                     Explore More
                   </button>
                 </div>
