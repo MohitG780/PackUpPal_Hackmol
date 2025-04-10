@@ -58,12 +58,12 @@ export const Navbar = () => {
       <nav className="bg-purple-50 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-         
+            {/* Logo */}
             <div className="flex items-center group cursor-pointer">
-                   
+                    {/* Icon */}
                     <Plane className="h-10 w-10 text-pink-900 transition-all duration-500 group-hover:rotate-45 group-hover:scale-110 group-hover:drop-shadow-[0_4px_8px_rgba(99,102,241,0.6)]" />
             
-                   
+                    {/* Text */}
                    <span className="ml-3 text-xl font-bold transition-transform duration-300 group-hover:scale-105">
                 <span className="bg-gradient-to-r from-pink-900 to-blue-600 text-transparent bg-clip-text">
                   PackUp
@@ -72,7 +72,7 @@ export const Navbar = () => {
               </span>
             </div>
 
-         
+            {/* Nav Links */}
             <div className="hidden md:flex items-center space-x-8">
               <span
                 onClick={() => handleNavigate("/Destination")}
@@ -90,7 +90,7 @@ export const Navbar = () => {
               </span>
             </div>
 
-        
+            {/* Auth / Menu */}
             <div className="flex items-center space-x-4">
               <button className="md:hidden p-2">
                 <Menu className="h-6 w-6 text-gray-600" />
@@ -125,7 +125,7 @@ export const Navbar = () => {
         </div>
       </nav>
 
-    
+      {/* Login Modal */}
       {showModal && !currentUser && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
           <div className="bg-white rounded-lg shadow-lg p-8 w-80 relative">

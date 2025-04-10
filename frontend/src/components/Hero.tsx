@@ -24,12 +24,6 @@ export const Hero = () => {
     }
   };
 
-  
-  const searchDestination = (query) => {
-    const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-    window.open(url, '_blank');
-  };
-
   return (
     <div className="relative bg-gradient-to-b from-purple-50 to-white">
       <Toaster position="top-center" />
@@ -70,26 +64,22 @@ export const Hero = () => {
               <img 
                 src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80" 
                 alt="Taj Mahal" 
-                className="rounded-2xl shadow-lg w-full h-48 object-cover cursor-pointer"
-                onClick={() => searchDestination('Taj Mahal India')}
+                className="rounded-2xl shadow-lg w-full h-48 object-cover"
               />
               <img 
                 src="https://images.unsplash.com/photo-1514222134-b57cbb8ce073?auto=format&fit=crop&q=80" 
-                alt="Amritsar" 
-                className="rounded-2xl shadow-lg w-full h-48 object-cover mt-8 cursor-pointer"
-                onClick={() => searchDestination('Amritsar')}
+                alt="Kerala Backwaters" 
+                className="rounded-2xl shadow-lg w-full h-48 object-cover mt-8"
               />
               <img 
                 src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&q=80" 
                 alt="Varanasi Ghats" 
-                className="rounded-2xl shadow-lg w-full h-48 object-cover cursor-pointer"
-                onClick={() => searchDestination('Varanasi Ghats')}
+                className="rounded-2xl shadow-lg w-full h-48 object-cover"
               />
               <img 
                 src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80" 
                 alt="Paris" 
-                className="rounded-2xl shadow-lg w-full h-48 object-cover mt-8 cursor-pointer"
-                onClick={() => searchDestination('Paris')}
+                className="rounded-2xl shadow-lg w-full h-48 object-cover mt-8"
               />
             </div>
           </div>

@@ -3,9 +3,6 @@ import { Search, MapPin, Star, Filter, ArrowLeft } from 'lucide-react';
 
 export function Destinations() {
   const [selectedRegion, setSelectedRegion] = useState('all');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [minRating, setMinRating] = useState(0);
-  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
 
   const destinations = [
     {
@@ -13,62 +10,52 @@ export function Destinations() {
       image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80",
       description: "A testament to eternal love and architectural brilliance",
       rating: 4.9,
-      region: "asia",
-      link: "https://www.bing.com/search?pglt=297&q=taj+mahal+india&cvid=d9897e560ee34f46a9b1313137c161df&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOdIBCDQzNzdqMGoxqAIAsAIA&FORM=ANNTA1&PC=HCTS"
+      region: "asia"
     },
     {
       name: "Santorini, Greece",
       image: "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?auto=format&fit=crop&q=80",
       description: "Iconic white buildings and breathtaking sunsets",
       rating: 4.8,
-      region: "europe",
-      link: "https://www.bing.com/search?pglt=297&q=Santorini%2C+Greece&cvid=31db44500c5a4da7bff80ca330e57699&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOTIGCAEQABhAMgYIAhAAGEAyBggDEAAYQDIGCAQQABhAMgYIBRAAGEAyBggGEAAYQDIGCAcQABhAMgYICBAAGEDSAQc2MDhqMGoxqAIAsAIA&FORM=ANNTA1&PC=HCTS"
+      region: "europe"
     },
     {
       name: "Swiss Alps",
       image: "https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99?auto=format&fit=crop&q=80",
       description: "Majestic peaks and pristine alpine landscapes",
       rating: 4.9,
-      region: "europe",
-      link: "https://www.bing.com/search?pglt=297&q=Swiss+Alps+Majestic+peaks&cvid=18f693cdc151460991621f9c7a96e52b&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOTIGCAEQABhAMgYIAhAAGEAyBggDEAAYQDIGCAQQABhAMgYIBRAAGEAyBggGEAAYQDIGCAcQABhAMgYICBAAGEDSAQgxODMzajBqMagCALACAA&FORM=ANNTA1&PC=HCTS"
+      region: "europe"
     },
     {
       name: "Kerala Backwaters",
       image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80",
       description: "Serene waterways and lush tropical beauty",
       rating: 4.7,
-      region: "asia",
-      link: "https://www.bing.com/search?pglt=297&q=Kerala+Backwaters&cvid=8dc5183f9f7f48c5a677117553ba083c&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOTIGCAEQABhAMgYIAhAuGEAyBggDEAAYQDIGCAQQABhAMgYIBRAAGEAyBggGEAAYQDIGCAcQABhAMgYICBAAGEDSAQgxMDAxajBqMagCALACAA&FORM=ANNTA1&PC=HCTS"
+      region: "asia"
     },
     {
       name: "Machu Picchu, Peru",
       image: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?auto=format&fit=crop&q=80",
       description: "Ancient Incan city in the clouds",
       rating: 4.9,
-      region: "americas",
-      link: "https://www.bing.com/search?pglt=297&q=Machu+Picchu%2C+Peru&cvid=d25cca242d0a4326be6a7afb7baeaef4&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOTIGCAEQABhAMgYIAhAAGEAyBggDEAAYQDIGCAQQABhAMgYIBRAAGEAyBggGEAAYQDIGCAcQABhAMgYICBAAGEDSAQc1NjhqMGoxqAIAsAIA&FORM=ANNTA1&PC=HCTS"
+      region: "americas"
     },
     {
       name: "Mount Fuji, Japan",
       image: "https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&q=80",
       description: "Japan's iconic sacred mountain",
       rating: 4.8,
-      region: "asia",
-      link: "https://www.bing.com/search?pglt=297&q=Mount+Fuji%2C+Japan&cvid=54b1f26724154ab3a74993fba693a280&gs_lcrp=EgRlZGdlKgYIABBFGDkyBggAEEUYOTIGCAEQABhAMgYIAhAAGEAyBggDEAAYQDIGCAQQABhAMgYIBRAAGEAyBggGEAAYQDIGCAcQABhAMgYICBAAGEDSAQc0MzRqMGoxqAIAsAIA&FORM=ANNTA1&PC=HCTS"
+      region: "asia"
     }
   ];
 
-  const filteredDestinations = destinations.filter(dest => {
-    const matchesRegion = selectedRegion === 'all' || dest.region === selectedRegion;
-    const matchesSearch =
-      dest.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      dest.description.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesRating = dest.rating >= parseFloat(minRating);
-    return matchesRegion && matchesSearch && matchesRating;
-  });
+  const filteredDestinations = selectedRegion === 'all' 
+    ? destinations 
+    : destinations.filter(dest => dest.region === selectedRegion);
 
   return (
     <div className="bg-white relative">
+      {/* Back Icon Button */}
       <div className="absolute top-5 left-5 z-50">
         <button
           onClick={() => window.history.back()}
@@ -78,6 +65,8 @@ export function Destinations() {
           <ArrowLeft className="w-5 h-5" />
         </button>
       </div>
+
+      {/* Hero Section */}
       <div className="bg-purple-50 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-6">Explore Amazing Destinations</h1>
@@ -86,8 +75,6 @@ export function Destinations() {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
               <input
                 type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search destinations..."
                 className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
               />
@@ -103,66 +90,43 @@ export function Destinations() {
                 <option value="europe">Europe</option>
                 <option value="americas">Americas</option>
               </select>
-              <button 
-                onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
-                className="px-4 py-3 bg-white rounded-lg border border-gray-200 hover:bg-gray-50"
-              >
+              <button className="px-4 py-3 bg-white rounded-lg border border-gray-200 hover:bg-gray-50">
                 <Filter className="w-5 h-5 text-gray-600" />
               </button>
             </div>
           </div>
-          {showAdvancedFilters && (
-            <div className="mt-4 flex items-center space-x-4">
-              <label className="text-gray-700">Minimum Rating:</label>
-              <input
-                type="range"
-                min="0"
-                max="5"
-                step="0.1"
-                value={minRating}
-                onChange={(e) => setMinRating(e.target.value)}
-                className="w-48"
-              />
-              <span className="text-gray-700">{minRating}</span>
-            </div>
-          )}
         </div>
       </div>
+
+      {/* Destinations Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {filteredDestinations.length > 0 ? (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredDestinations.map((destination, index) => (
-              <div key={index} className="group bg-white rounded-xl shadow-lg overflow-hidden">
-                <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src={destination.image} 
-                    alt={destination.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center">
-                    <Star className="w-4 h-4 text-yellow-400 fill-current" />
-                    <span className="ml-1 text-sm font-medium">{destination.rating}</span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center mb-2">
-                    <MapPin className="w-4 h-4 text-red-600" />
-                    <h3 className="ml-2 text-xl font-semibold text-gray-900">{destination.name}</h3>
-                  </div>
-                  <p className="text-gray-600">{destination.description}</p>
-                  <button 
-                    onClick={() => window.open(destination.link, '_blank')}
-                    className="mt-4 w-full px-4 py-2 bg-pink-900 text-white rounded-lg hover:bg-purple-700 transition-colors"
-                  >
-                    Explore More
-                  </button>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredDestinations.map((destination, index) => (
+            <div key={index} className="group bg-white rounded-xl shadow-lg overflow-hidden">
+              <div className="relative h-64 overflow-hidden">
+                <img 
+                  src={destination.image} 
+                  alt={destination.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center">
+                  <Star className="w-4 h-4 text-yellow-400 fill-current" />
+                  <span className="ml-1 text-sm font-medium">{destination.rating}</span>
                 </div>
               </div>
-            ))}
-          </div>
-        ) : (
-          <p className="text-center text-gray-500">No destinations match your search criteria.</p>
-        )}
+              <div className="p-6">
+                <div className="flex items-center mb-2">
+                  <MapPin className="w-4 h-4 text-red-600" />
+                  <h3 className="ml-2 text-xl font-semibold text-gray-900">{destination.name}</h3>
+                </div>
+                <p className="text-gray-600">{destination.description}</p>
+                <button className="mt-4 w-full px-4 py-2 bg-pink-900 text-white rounded-lg hover:bg-purple-700 transition-colors">
+                  Explore More
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
