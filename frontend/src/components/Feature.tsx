@@ -1,29 +1,36 @@
 import React from 'react';
-import { Utensils, Tent, Camera, Train } from 'lucide-react';
 
+import { Utensils, Tent, Camera, Train } from 'lucide-react';
 export const Features =() => {
+
+
   const features = [
     {
       icon: <Train className="w-6 h-6" />,
       title: "Cultural Journeys",
       description: "Experience diverse cultures through carefully curated routes"
     },
+
     {
       icon: <Utensils className="w-6 h-6" />,
       title: "Culinary Adventures",
       description: "Savor authentic cuisines and food trails across the globe"
     },
+
     {
       icon: <Tent className="w-6 h-6" />,
       title: "Local Experiences",
       description: "Connect with local communities and traditional lifestyles"
     },
+
     {
       icon: <Camera className="w-6 h-6" />,
       title: "Photo Trails",
       description: "Capture Instagram-worthy moments at scenic locations"
     }
   ];
+
+
 
   const destinations = [
     {
