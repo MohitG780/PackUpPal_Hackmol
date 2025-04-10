@@ -56,7 +56,55 @@ export const Features =() => {
   return (
     <>
       <div className="bg-white py-24">
-     
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900">
+              Discover Your Perfect Adventure
+            </h2>
+            <p className="mt-4 text-xl text-gray-600">
+              Curated experiences that bring the world's magic to life
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <div 
+                key={index}
+                className="group bg-purple-50 p-6 rounded-xl hover:bg-purple-100 transition-all duration-300"
+              >
+                <div className="inline-flex items-center justify-center p-3 bg-purple-100 rounded-lg text-pink-900 group-hover:scale-110 transition-transform">
+                  {feature.icon}
+                </div>
+                <h3 className="mt-4 text-lg font-semibold text-gray-900">
+                  {feature.title}
+                </h3>
+                <p className="mt-2 text-gray-600">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-purple-50 py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-16">Popular Destinations</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {destinations.map((destination, index) => (
+              <div key={index} className="group relative overflow-hidden rounded-2xl">
+                <img 
+                  src={destination.image} 
+                  alt={destination.name}
+                  className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
+                  <h3 className="text-2xl font-bold text-white">{destination.name}</h3>
+                  <p className="text-white/90">{destination.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </>
   );
