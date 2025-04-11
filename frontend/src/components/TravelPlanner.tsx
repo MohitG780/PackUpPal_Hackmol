@@ -293,6 +293,17 @@ const TravelPlanner = () => {
                   <DollarSign className="h-5 w-5 mr-2" />
                   Budget Tracker
                 </button>
+                <button
+                  className={`w-full px-3 py-2 text-left flex items-center ${
+                    activeSection === "budget"
+                      ? `${isDarkMode ? "bg-gray-700/90 text-white border border-pink-500/30" : "bg-blue-50 text-blue-700"}`
+                      : `${isDarkMode ? "text-gray-300 hover:bg-gray-700" : "text-gray-700 hover:bg-gray-100"}`
+                  } rounded-md`}
+                  onClick={() => navigate("/suggestions")}
+                >
+                  <DollarSign className="h-5 w-5 mr-2" />
+                  Suggestion Tracker
+                </button>
               </nav>
             </div>
 
